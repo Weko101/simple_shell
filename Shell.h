@@ -38,12 +38,12 @@ extern char **environ;
 
 
 /**
- * struct liststr - singly linked list
+ * struct liststr_1 - singly linked list
  * @str: a string
  * @num: the number field
  * @next: points to the next node
  */
-typedef struct liststr
+typedef struct liststr_1
 {
 	int num;
 	char *str;
@@ -52,7 +52,7 @@ typedef struct liststr
 
 
 /**
- * struct passinfo - contains pseudo-arguements to pass into a function,
+ * struct passinfo_2 - contains pseudo-arguements to pass into a function,
  * @history: the history node
  * @alias: the alias node
  * @env_changed: on if environ was changed
@@ -73,7 +73,7 @@ typedef struct liststr
  * @argv:an array of strings generated from arg
  * @path: a string path for the current command
  */
-typedef struct passinfo
+typedef struct passinfo_2
 {
 	int err_num;
 	int linecount_flag;
@@ -102,11 +102,11 @@ typedef struct passinfo
 
 
 /**
- * struct builtin - contains a builtin string and related function
+ * struct builtin_3 - contains a builtin string and related function
  * @func: the function
  * @type: the builtin command flag
  */
-typedef struct builtin
+typedef struct builtin_3
 {
 	char *type;
 	int (*func)(info_t *);
