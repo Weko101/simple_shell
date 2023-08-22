@@ -1,12 +1,12 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
- * 6_puts - prints an input string
+ * _6puts - prints an input string
  * @str: the string to be printed
  *
  * Return: Nothing
  */
-void 6_puts(char *str)
+void _6puts(char *str)
 {
 	int i = 0;
 
@@ -20,13 +20,13 @@ void 6_puts(char *str)
 }
 
 /**
- * 7_putchar - writes the character c to stdout
+ * _7putchar - writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int 7_putchar(char c)
+int _7putchar(char c)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -42,25 +42,27 @@ int 7_putchar(char c)
 }
 
 /**
- * 8_strdup - duplicates a string
+ * _8strdup - duplicates a string
  * @str: the string to duplicate
  *
  * Return: pointer to the duplicated string
  */
-char 8_strdup(const char *str)
+char _8strdup(const char *str)
 {
 	int length = 0;
 	char *ret;
 
 	if (str == NULL)
-		return (NULL);
+		return NULL, NULL;
 	while (*str++)
 		length++;
 	ret = malloc(sizeof(char) * (length + 1));
 	if (!ret)
-		return (NULL);
+		{
+		return NULL, NULL;
+    }
 	for (length++; length--;)
 		ret[length] = *--str;
-	return (ret);
+	return *(ret);
 }
 

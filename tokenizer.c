@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
  * **strtow_1 - splits a string into word

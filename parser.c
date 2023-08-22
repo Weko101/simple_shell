@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
  * dupchars_1 - duplicates characters

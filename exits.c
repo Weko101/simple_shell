@@ -1,14 +1,14 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
- *1_strncat - concatenates two strings
+ *_1strncat - concatenates two strings
  *@dest: the first string
  *@src: the second string
  *@n: the amount of bytes to be maximally used
  *
  *Return: the concatenated string
  */
-char 1_strncat(char *dest, char *src, int n)
+char _1strncat(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -29,13 +29,13 @@ char 1_strncat(char *dest, char *src, int n)
 }
 
 /**
- *2_strchr - locates a character in a string
+ *_2strchr - locates a character in a string
  *@c: the character to look for
  *@s: the string to be parsed
  *
  *Return: (s) a pointer to the memory area s
  */
-char 2_strchr(char *s, char c)
+char _2strchr(char *s, char c)
 {
 	do {
 		if (*s == c)
@@ -46,14 +46,14 @@ char 2_strchr(char *s, char c)
 }
 
 /**
- *3_strncpy - copies a string
+ *_3strncpy - copies a string
  *@n: the amount of characters to be copied
  *@dest: the destination string to be copied to
  *@src: the source string
  *
  *Return: the concatenated string
  */
-char 3_strncpy(char *dest, char *src, int n)
+char _3strncpy(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;

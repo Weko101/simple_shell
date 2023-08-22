@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
  * 6_setalias - sets alias to string

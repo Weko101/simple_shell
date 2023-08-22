@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
  * 1_setinfo - initializes info_t struct

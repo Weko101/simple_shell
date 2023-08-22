@@ -1,13 +1,13 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
- * 1_myhelp - changes the current directory of the process
+ * _1myhelp - changes the current directory of the process
  * constant function prototype
  * @info: Structure containing potential arguments. Used to maintain
  *
  * Return: Always 0
  */
-int 1_myhelp(info_t *info)
+int _1myhelp(info_t *info)
 {
 	char **arg_array;
 
@@ -19,14 +19,14 @@ int 1_myhelp(info_t *info)
 }
 
 /**
- * 2_myexit - exits the shell
+ * _2myexit - exits the shell
  * constant function prototype.
  * @info: Structure containing potential arguments. Used to maintain
  *
  * Return: exits with a given exit status
  * (0) if info.argv[0] != "exit"
  */
-int 2_myexit(info_t *info)
+int _2myexit(info_t *info)
 {
 	int exitcheck;
 
@@ -49,13 +49,13 @@ int 2_myexit(info_t *info)
 }
 
 /**
- * 3_mycd - changes the current directory of the process
+ * _3mycd - changes the current directory of the process
  * constant function prototype.
  * @info: Structure containing potential arguments. Used to maintain
  *
  * Return: Always 0
  */
-int 3_mycd(info_t *info)
+int _3mycd(info_t *info)
 {
 	char *s, *dir, buffer[1024];
 	int chdir_ret;
@@ -100,27 +100,27 @@ int 3_mycd(info_t *info)
 }
 
 /**
- * 4_myhistory - displays the history list, one command by line, preceded
+ * _4myhistory - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *
  *  Return: Always 0
  */
-int 4_myhistory(info_t *info)
+int _4myhistory(info_t *info)
 {
 	print_list(info->history);
 	return (0);
 }
 
 /**
- * 5_unsetalias - sets alias to string
+ * _5unsetalias - sets alias to string
  * @str: the string alias
  * @info: parameter struct
  *
  * Return: Always 0 on success, 1 on error
  */
-int 5_unsetalias(info_t *info, char *str)
+int _5unsetalias(info_t *info, char *str)
 {
 	char *p, c;
 	int ret;

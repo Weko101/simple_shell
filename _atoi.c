@@ -1,12 +1,12 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
- * 1_atoi - converts a string to an integer
+ * _1atoi - converts a string to an integer
  * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  */
 
-int 1_atoi(char *s)
+int _1atoi(char *s)
 {
 	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
@@ -35,12 +35,12 @@ int 1_atoi(char *s)
 }
 
 /**
- * 2_isalpha - checks for alphabetic character
+ * _2isalpha - checks for alphabetic character
  * @c: The character to input
  * Return: 1 if c is alphabetic, 0 otherwise
  */
 
-int 2_isalpha(int c)
+int _2isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);

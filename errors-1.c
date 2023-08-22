@@ -1,13 +1,61 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
- * 6_printd - function prints a decimal (integer) number (base 10)
- * @fd: the filedescriptor to write to
+ * removecomments - function replaces first instance of '#' with '\0'
+ * @buf: address of the string to modify
+ *
+ * Return: Always 0;
+ */
+void removecomments(char *buf)
+{
+	int i;
+
+	for (i = 0; buf[i] != '\0'; i++)
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+		{
+			buf[i] = '\0';
+			break;
+		}
+}
+
+/**
+ * _2erratoi - converts a string to an integer
+ * @s: the string to be converted
+ * Return: 0 if no numbers in string, converted number otherwise
+ *       -1 on error
+ */
+int _2erratoi(char *s)
+{
+	int i = 0;
+	unsigned long int result = 0;
+
+	if (*s == '+')
+		s++;  /* TODO: why does this make main return 255? */
+	for (i = 0;  s[i] != '\0'; i++)
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			result *= 10;
+			result += (s[i] - '0');
+			if (result > INT_MAX)
+				return (-1);
+		}
+		else
+			return (-1);
+	}
+	return (result);
+}
+
+
+
+/**
+ * printd - function prints a decimal (integer) number (base 10)
  * @input: the input
+ * @fd: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
-int 6_printd(int input, int fd)
+int printd(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
@@ -40,14 +88,14 @@ int 6_printd(int input, int fd)
 }
 
 /**
- * 7_convertnumber - converter function, a clone of itoa
- * @flags: argument flags
+ * convertnumber - converter function, a clone of itoa
  * @num: number
  * @base: base
+ * @flags: argument flags
  *
  * Return: string
  */
-char 7_convertnumber(long int num, int base, int flags)
+char *convertnumber(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -73,52 +121,5 @@ char 7_convertnumber(long int num, int base, int flags)
 	if (sign)
 		*--ptr = sign;
 	return (ptr);
-}
-
-/**
- * 8_removecomments - function replaces first instance of '#' with '\0'
- * @buf: address of the string to modify
- *
- * Return: Always 0;
- */
-void 8_removecomments(char *buf)
-{
-	int i;
-
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
-		{
-			buf[i] = '\0';
-			break;
-		}
-}
-
-/**
- * 9_erratoi - converts a string to an integer
- * @s: the string to be converted
- *
- * Return: 0 if no numbers in string, converted number otherwise
- *       -1 on error
- */
-int 9_erratoi(char *s)
-{
-	int i = 0;
-	unsigned long int result = 0;
-
-	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
-				return (-1);
-		}
-		else
-			return (-1);
-	}
-	return (result);
 }
 
