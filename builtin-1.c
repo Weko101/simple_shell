@@ -1,13 +1,13 @@
 #include "Shell.h"
 
 /**
- * 6_setalias - sets alias to string
+ * _6setalias - sets alias to string
  * @info: parameter struct
  * @str: the string alias
  *
  * Return: Always 0 on success, 1 on error
  */
-int 6_setalias(info_t *info, char *str)
+int _6setalias(info_t *info, char *str)
 {
 	char *p;
 
@@ -22,12 +22,12 @@ int 6_setalias(info_t *info, char *str)
 }
 
 /**
- * 7_printalias - prints an alias string
+ * _7printalias - prints an alias string
  * @node: the alias node
  *
  * Return: Always 0 on success, 1 on error
  */
-int 7_printalias(list_t *node)
+int _7printalias(list_t *node)
 {
 	char *p = NULL, *a = NULL;
 
@@ -45,12 +45,12 @@ int 7_printalias(list_t *node)
 }
 
 /**
- * 8_myalias - mimics the alias builtin (man alias)
+ * _8myalias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
  */
-int 8_myalias(info_t *info)
+int _8myalias(info_t *info)
 {
 	int i = 0;
 	char *p = NULL;

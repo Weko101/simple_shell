@@ -1,13 +1,13 @@
 #include "Shell.h"
 
 /**
- * 1_putsfd - prints an input string
+ * _1putsfd - prints an input string
  * @fd: the filedescriptor to write to
  * @str: the string to be printed
  *
  *  * Return: the number of chars put
  */
-int 1_putsfd(char *str, int fd)
+int _1putsfd(char *str, int fd)
 {
 	int i = 0;
 
@@ -21,12 +21,12 @@ int 1_putsfd(char *str, int fd)
 }
 
 /**
- * 2_eputs - prints an input string
+ * _2eputs - prints an input string
  * @str: the string to be printed
  *
  * Return: Nothing
  */
-void 2_eputs(char *str)
+void _2eputs(char *str)
 {
 	int i = 0;
 
@@ -40,13 +40,13 @@ void 2_eputs(char *str)
 }
 
 /**
- * 3_eputchar - writes the character c to stderr
+ * _3eputchar - writes the character c to stderr
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int 3_eputchar(char c)
+int _3eputchar(char c)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -62,14 +62,14 @@ int 3_eputchar(char c)
 }
 
 /**
- * 4_putfd - writes the character c to given fd
+ * _4putfd - writes the character c to given fd
  * @fd: The filedescriptor to write to
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int 4_putfd(char c, int fd)
+int _4putfd(char c, int fd)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -85,14 +85,14 @@ int 4_putfd(char c, int fd)
 }
 
 /**
- * 5_printerror - prints an error message
+ * _5printerror - prints an error message
  * @estr: string containing specified error type
  * @info: the parameter & return info struct
  *
  * Return: 0 if no numbers in string, converted number otherwise
  *        -1 on error
  */
-void 5_printerror(info_t *info, char *estr)
+void _5printerror(info_t *info, char *estr)
 {
 	_eputs(info->fname);
 	_eputs(": ");
