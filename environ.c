@@ -1,86 +1,94 @@
 #include "Shell.h"
 
 /**
- * _1eputchar - writes the character c to stderr
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _1myenv - prints the current environment
+ * @info: Structure containing potential arguments. Used to maintain
+ *          constant function prototype.
+ * Return: Always 0
  */
-int _1eputchar(char c)
+int _1myenv(info_t *info)
 {
-	static int i;
-	static char buf[WRITE_BUF_SIZE];
-
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
-	{
-		write(2, buf, i);
-		i = 0;
-	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
-	return (1);
+	print_list_str(info->env);
+	return (0);
 }
 
 /**
- * _2eputs - prints an input string
- * @str: the string to be printed
+ * _2getenv - gets the value of an environ variable
+ * @info: Structure containing potential arguments. Used to maintain
+ * @name: env var name
  *
- * Return: Nothing
+ * Return: the value
  */
-void _2eputs(char *str)
+char *_2getenv(info_t *info, const char *name)
 {
-	int i = 0;
+	list_t *node = info->env;
+	char *p;
 
-	if (!str)
-		return;
-	while (str[i] != '\0')
+	while (node)
 	{
-		_eputchar(str[i]);
-		i++;
+		p = starts_with(node->str, name);
+		if (p && *p)
+			return (p);
+		node = node->next;
 	}
+	return (NULL);
 }
 
 /**
- * _3putsfd - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
- *
- * Return: the number of chars put
+ * _3mysetenv - Initialize a new environment variable,
+ *             or modify an existing one
+ * @info: Structure containing potential arguments. Used to maintain
+ *        constant function prototype.
+ *  Return: Always 0
  */
-int _3putsfd(char *str, int fd)
+int _3mysetenv(info_t *info)
 {
-	int i = 0;
-
-	if (!str)
+	if (info->argc != 3)
+	{
+		_eputs("Incorrect number of arguements\n");
+		return (1);
+	}
+	if (_setenv(info, info->argv[1], info->argv[2]))
 		return (0);
-	while (*str)
-	{
-		i += _putfd(*str++, fd);
-	}
-	return (i);
+	return (1);
 }
 
 /**
- * _4putfd - writes the character c to given fd
- * @c: The character to print
- * @fd: The filedescriptor to write to
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _4myunsetenv - Remove an environment variable
+ * @info: Structure containing potential arguments. Used to maintain
+ *        constant function prototype.
+ * Return: Always 0
  */
-int _4putfd(char c, int fd)
+int _4myunsetenv(info_t *info)
 {
-	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	int i;
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (info->argc == 1)
 	{
-		write(fd, buf, i);
-		i = 0;
+		_eputs("Too few arguements.\n");
+		return (1);
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
-	return (1);
+	for (i = 1; i <= info->argc; i++)
+		_unsetenv(info, info->argv[i]);
+
+	return (0);
 }
+
+/**
+ * _45populateenvlist - populates env linked list
+ * @info: Structure containing potential arguments. Used to maintain
+ *          constant function prototype.
+ * Return: Always 0
+ */
+int _5populateenvlist(info_t *info)
+{
+	list_t *node = NULL;
+	size_t i;
+
+	for (i = 0; environ[i]; i++)
+		add_node_end(&node, environ[i], 0);
+	info->env = node;
+	return (0);
+}
+
 
