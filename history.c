@@ -1,12 +1,12 @@
 #include "Shell.h"
 
 /**
- * 1_readhistory - reads history from file
+ * _1readhistory - reads history from file
  * @info: the parameter struct
  *
  * Return: histcount on success, 0 otherwise
  */
-int 1_readhistory(info_t *info)
+int _1readhistory(info_t *info)
 {
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
@@ -50,14 +50,14 @@ int 1_readhistory(info_t *info)
 }
 
 /**
- * 2_buildhistorylist - adds entry to a history linked list
+ * _2buildhistorylist - adds entry to a history linked list
  * @info: Structure containing potential arguments. Used to maintain
  * @buf: buffer
  * @linecount: the history linecount, histcount
  *
  * Return: Always 0
  */
-int 2_buildhistorylist(info_t *info, char *buf, int linecount)
+int _2buildhistorylist(info_t *info, char *buf, int linecount)
 {
 	list_t *node = NULL;
 
@@ -71,12 +71,12 @@ int 2_buildhistorylist(info_t *info, char *buf, int linecount)
 }
 
 /**
- * 3_renumberhistory - renumbers the history linked list after changes
+ * _3renumberhistory - renumbers the history linked list after changes
  * @info: Structure containing potential arguments. Used to maintain
  *
  * Return: the new histcount
  */
-int 3_renumberhistory(info_t *info)
+int _3renumberhistory(info_t *info)
 {
 	list_t *node = info->history;
 	int i = 0;
@@ -90,13 +90,13 @@ int 3_renumberhistory(info_t *info)
 }
 
 /**
- * 4_gethistoryfile - gets the history file
+ * _4gethistoryfile - gets the history file
  * @info: parameter struct
  *
  * Return: allocated string containg history file
  */
 
-char 4_gethistoryfile(info_t *info)
+char _4gethistoryfile(info_t *info)
 {
 	char *buf, *dir;
 
@@ -114,12 +114,12 @@ char 4_gethistoryfile(info_t *info)
 }
 
 /**
- * 5_writehistory - creates a file, or appends to an existing file
+ * _5writehistory - creates a file, or appends to an existing file
  * @info: the parameter struct
  *
  * Return: 1 on success, else -1
  */
-int 5_writehistory(info_t *info)
+int _5writehistory(info_t *info)
 {
 	ssize_t fd;
 	char *filename = get_history_file(info);

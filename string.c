@@ -80,7 +80,7 @@ char _4startswith(const char *haystack, const char *needle)
   *
  * Return: pointer to destination
  */
-char _5strcpy(char (*dest), char (*src))
+char *_5strcpy(char *dest, char *src)
 {
 	int i = 0;
 
@@ -94,4 +94,3 @@ char _5strcpy(char (*dest), char (*src))
 	dest[i] = 0;
 	return (dest);
 }
-

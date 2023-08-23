@@ -65,7 +65,7 @@ ssize_t getnodeindex_7(list_t *head, list_t *node)
  *
  * Return: match node or null
  */
-list_t nodestartswith_8(list_t *node, char *prefix, char c)
+list_t *nodestartswith_8(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 
